@@ -52,10 +52,24 @@
                 // Print the line with a line number
                 echo '<tr>';
                 echo '<td class="line-number">' . $count . '</td>';
-                echo '<td class="small content">' . $line . '</td>';
+
+                if ($count == 1) {
+                    // apply the typewriter class to the first line data
+                    $last_colon_pos = strrpos($line, ':');
+                    if ($last_colon_pos !== false) {
+                        $message_before_colon = substr($line, 0, $last_colon_pos + 1); // Include the colon in the first part
+                
+                        $message_after_colon = substr($line, $last_colon_pos + 2); // Skip the colon and the space after it
+                        echo '<td class="small content">' . $message_before_colon . '<span class="typewriter">' . $message_after_colon . '</span> </td>';
+                    } else {
+                        echo '<td colspan="2">log format mistake</td>';
+                    }
+                } else {
+                    echo '<td class="small content">' . $line . '</td>';
+                }
+
                 echo '</tr>';
 
-                // Increment the line counter
                 $count++;
             }
 
