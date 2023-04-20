@@ -1,18 +1,18 @@
 <html>
-    
+
 <head>
     <title>Log Viewer</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<table>
+    <table>
         <?php
-     $refreshInterval = isset($_GET['refresh']) ? intval($_GET['refresh']) : 0;
+        $refreshInterval = isset($_GET['refresh']) ? intval($_GET['refresh']) : 0;
 
-if ($refreshInterval != 0) {
-    header("refresh: $refreshInterval");
-}
+        if ($refreshInterval != 0) {
+            header("refresh: $refreshInterval");
+        }
         $file = '../scripts/logtcp.txt';
 
         if (file_exists($file)) {
@@ -27,11 +27,11 @@ if ($refreshInterval != 0) {
                 // Get the next line from the file
                 $line = fgets($handle);
 
-        // Print the line with a line number
-        echo '<tr>';
-        echo '<td class="line-number">' . $count . '</td>';
-        echo '<td class="small content">' . $line . '</td>';
-        echo '</tr>';
+                // Print the line with a line number
+                echo '<tr>';
+                echo '<td class="line-number">' . $count . '</td>';
+                echo '<td class="small content">' . $line . '</td>';
+                echo '</tr>';
 
                 // Increment the line counter
                 $count++;
@@ -43,8 +43,8 @@ if ($refreshInterval != 0) {
             echo '<tr><td colspan="2">File not found</td></tr>';
         }
         ?>
-</table>
-    
+    </table>
+
 </body>
 
 </html>
