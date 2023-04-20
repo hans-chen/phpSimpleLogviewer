@@ -1,7 +1,6 @@
 <html>
-
+    
 <head>
-
     <title>Log Viewer</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -9,6 +8,11 @@
 <body>
 <table>
         <?php
+     $refreshInterval = isset($_GET['refresh']) ? intval($_GET['refresh']) : 0;
+
+if ($refreshInterval != 0) {
+    header("refresh: $refreshInterval");
+}
         $file = '../scripts/logtcp.txt';
 
         if (file_exists($file)) {
