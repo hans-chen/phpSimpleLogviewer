@@ -7,9 +7,10 @@
 </head>
 
 <body>
-    <p class="small rise">
+<table>
+     <p class="small rise">
         <?php
-        $file = './logtcp.txt';
+        $file = '../scripts/logtcp.txt';
 
         if (file_exists($file)) {
             // Open the file in read-only mode
@@ -23,8 +24,11 @@
                 // Get the next line from the file
                 $line = fgets($handle);
 
-                // Print the line with a line number
-                echo '<span class="line-number">' . $count . '|</span> ' . $line . '<br>';
+        // Print the line with a line number
+        echo '<tr>';
+        echo '<td class="line-number">' . $count . '</td>';
+        echo '<td class="content"><p>' . $line . '</p></td>';
+        echo '</tr>';
 
                 // Increment the line counter
                 $count++;
@@ -33,9 +37,10 @@
             // Close the file
             fclose($handle);
         } else {
-            echo 'File not found';
+            echo '<tr><td colspan="2">File not found</td></tr>';
         }
         ?>
+</table>
     </p>
 </body>
 
