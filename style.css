@@ -35,3 +35,31 @@ p {
         transform: translateY(-0.025em) translateX(0.04em);
     }
 }
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table td {
+    padding: 5px;
+}
+
+table th {
+    padding: 5px;
+}
+
+table td.line-number {
+    width: 50px;
+    font-weight: bold;
+    border-right: 1px solid #FFF;
+}
+
+table td.content {
+    border-left: 1px solid #FFF;
+}
+
+table td.content p {
+    margin: 0;
+    white-space: pre-wrap;
+}
