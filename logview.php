@@ -1,3 +1,4 @@
+<!doctype html>
 <html>
 
 <head>
@@ -8,12 +9,33 @@
 <body>
     <table>
         <?php
+        $file = '../scripts/logtcp.txt';
+
+        // allow refresh interval passed via parameter
         $refreshInterval = isset($_GET['refresh']) ? intval($_GET['refresh']) : 0;
 
         if ($refreshInterval != 0) {
             header("refresh: $refreshInterval");
         }
-        $file = '../scripts/logtcp.txt';
+
+        // Get the last modified time of the resource
+        $lastModified = filemtime($file);
+
+        // Set the Last-Modified header
+        header('Last-Modified: ' . gmdate('D, d M Y H:i:s', $lastModified) . ' GMT');
+
+        // Check if the browser has a cached version of the resource
+        if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE'])) {
+            // Parse the If-Modified-Since header
+            $ifModifiedSince = strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE']);
+
+            // Compare the cached timestamp with the last modified time
+            if ($ifModifiedSince >= $lastModified) {
+                // Send a 304 Not Modified response
+                header('HTTP/1.1 304 Not Modified');
+                exit();
+            }
+        }
 
         if (file_exists($file)) {
             // Open the file in read-only mode
