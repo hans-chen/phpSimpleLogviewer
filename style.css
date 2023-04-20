@@ -2,23 +2,14 @@
 
 body,
 html {
-    height: 100%;
-    display: grid;
+	height: 100%;
     background-color: #000;
     font-family: "Source Code Pro", cursive;
     color: #F88300;
 }
 
-p {
-    margin: auto;
-}
-
-.large {
-    font-size: 6rem;
-}
-
 .small {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .rise {
@@ -37,29 +28,27 @@ p {
 }
 
 table {
-    border-collapse: collapse;
-    width: 100%;
+  border-collapse: collapse;
+  width: 100%;
+  border-spacing: 0;
 }
 
 table td {
-    padding: 5px;
+	padding: 5px;
 }
 
 table th {
-    padding: 5px;
+	padding: 5px;
 }
 
 table td.line-number {
-    width: 50px;
-    font-weight: bold;
-    border-right: 1px solid #FFF;
+	width: 30px;
+	font-weight: bold;
+	border-right: 1px solid #D7AF00;
 }
 
 table td.content {
-    border-left: 1px solid #FFF;
+	border-left: 1px solid #D7AF00;
+	cellspacing="0";
 }
 
-table td.content p {
-    margin: 0;
-    white-space: pre-wrap;
-}

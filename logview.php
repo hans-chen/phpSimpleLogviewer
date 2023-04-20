@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <meta http-equiv="refresh" content="10"> <!-- Refresh every 5 seconds -->
+
     <title>Log Viewer</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -26,7 +26,7 @@
         // Print the line with a line number
         echo '<tr>';
         echo '<td class="line-number">' . $count . '</td>';
-        echo '<td class="small rise">' . $line . '</td>';
+        echo '<td class="small content">' . $line . '</td>';
         echo '</tr>';
 
                 // Increment the line counter
