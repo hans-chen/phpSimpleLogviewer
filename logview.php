@@ -8,7 +8,6 @@
 
 <body>
 <table>
-     <p class="small rise">
         <?php
         $file = '../scripts/logtcp.txt';
 
@@ -27,7 +26,7 @@
         // Print the line with a line number
         echo '<tr>';
         echo '<td class="line-number">' . $count . '</td>';
-        echo '<td class="content"><p>' . $line . '</p></td>';
+        echo '<td class="small rise">' . $line . '</td>';
         echo '</tr>';
 
                 // Increment the line counter
@@ -41,7 +40,7 @@
         }
         ?>
 </table>
-    </p>
+    
 </body>
 
 </html>
